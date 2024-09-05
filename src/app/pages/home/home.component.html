@@ -1,0 +1,20 @@
+<div class="flex flex-col gap-2 w-full">
+  <app-navbar></app-navbar>
+
+  <div class="flex flex-row gap-2 px-4 text-ctp-text font-mont font-semibold">
+    <fa-icon [icon]="faHome" class=""></fa-icon>
+    <fa-icon [icon]="faChevronRight" class=""></fa-icon>
+    <p class="">Title</p>
+  </div>
+
+  <div class="flex flex-row gap-5 p-2 w-full font-popp text-ctp-text">
+    <div class="border-ctp-crust border-r-2 w-1/5 font-semibold flex justify-center flex-col gap-5 p-2">
+      @for (item of itemsLeft; track item.id) {
+        <p class="p-2 hover:bg-ctp-surface0 rounded-lg">{{ item.text }}</p>
+      } @empty {
+        <p>There are no items.</p>
+      }
+    </div>
+    <div>right</div>
+  </div>
+</div>
