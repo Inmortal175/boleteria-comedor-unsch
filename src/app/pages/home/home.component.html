@@ -7,14 +7,60 @@
     <p class="">Title</p>
   </div>
 
-  <div class="flex flex-row gap-5 p-2 w-full font-popp text-ctp-text">
-    <div class="border-ctp-crust border-r-2 w-1/5 font-semibold flex justify-center flex-col gap-5 p-2">
+  <div class="flex flex-row gap-5 p-2 w-full font-mont text-ctp-text">
+    <div class="border-ctp-crust border-r-2 w-1/5 font-semibold flex justify-start flex-col gap-5 p-2">
       @for (item of itemsLeft; track item.id) {
         <p class="p-2 hover:bg-ctp-surface0 rounded-lg">{{ item.text }}</p>
       } @empty {
         <p>There are no items.</p>
       }
     </div>
-    <div>right</div>
+
+    <div class="flex flex-row w-full justify-between px-20">
+      @for (menu of dataMenu; track menu.id) {
+        <div class="flex flex-col font-popp text-ctp-text gap-2">
+          <p class="font-semibold text-xl capitalize text-center">{{ menu.field }}</p>
+
+          @for (detail of menu.details; track detail.name) {
+            <div class="flex flex-col gap-1">
+              <p class="font-medium text-lg text-ctp-subtext1">{{ detail.name }}</p>
+              <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+            </div>
+          } @empty {
+            <div>No details available.</div>
+          }
+
+          <div class="font-mont text-ctp-text text-base flex flex-col gap-2">
+            <div class="flex flex-row text-ctp-green">
+              <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              <p class="capitalize font-medium">mostrar valor nutricional</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <span class="">Carbohidratos </span>
+              <span>{{ menu.nutritional_value.carbohydrates }}</span>
+            </div>
+
+            <div class="flex flex-row justify-between">
+              <span class="">Proteínas </span>
+              <span>{{ menu.nutritional_value.proteins }} </span>
+            </div>
+
+            <div class="flex flex-row justify-between">
+              <span class="">Grasas </span>
+              <span>{{ menu.nutritional_value.fats }} </span>
+            </div>
+
+            <div class="flex flex-row justify-between">
+              <span class="">Energía </span>
+              <span>{{ menu.nutritional_value.energy }} </span>
+            </div>
+          </div>
+
+          <div>image: {{ menu.image }}</div>
+        </div>
+      } @empty {
+        <div>No menus available.</div>
+      }
+    </div>
   </div>
 </div>
