@@ -9,6 +9,10 @@ module.exports = {
         popp: ['Poppins', 'sans-serif'],
         'victor-mono': ['Victor Mono', 'sans-serif'],
       },
+      colors: {
+        'red-unsch': '#5D0104',
+        'peach-unsch': '#C99100',
+      },
     },
   },
   plugins: [
