@@ -5,9 +5,8 @@ module.exports = {
     extend: {
       fontFamily: {
         mont: ['Montserrat', 'sans-serif'],
-        'mont-alt': ['Montserrat Alternates', 'sans-serif'],
         popp: ['Poppins', 'sans-serif'],
-        'victor-mono': ['Victor Mono', 'sans-serif'],
+        victor: ['Victor Mono', 'sans-serif'],
       },
       colors: {
         'red-unsch': '#5D0104',
