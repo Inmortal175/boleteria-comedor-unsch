@@ -1,14 +1,22 @@
-<div class="flex flex-row justify-between items-center border-ctp-overlay0 bg-red-950 p-5 border-b-2 text-lg">
-  <div>
-    <fa-icon [icon]="faQuestion" class="text-ctp-mantle"></fa-icon>
-  </div>
+<div class="flex flex-row justify-between items-center bg-red-unsch text-lg font-mont p-2">
+  <!-- Logo for small screens-->
+  <img ngSrc="assets/images/logo_unsch.png" alt="" width="100" height="100" class="w-8 h-12 block md:hidden" />
 
-  <div class="flex flex-row gap-5 text-ctp-mantle">
-    <fa-icon [icon]="faPalette" class=""></fa-icon>
-    <fa-icon [icon]="faUser" class=""></fa-icon>
+  <!-- Logo for large screens -->
+  <img ngSrc="assets/images/logo_unsch_h.png" alt="" width="100" height="100" class="w-32 hidden md:block" />
+
+  <div class="flex flex-row gap-5 text-peach-unsch items-center">
     <div class="flex flex-row items-center gap-2">
       <fa-icon [icon]="faClock" class=""></fa-icon>
-      <p class="font-semibold text-ctp-crust">24:60</p>
+      <p class="font-semibold font-victor">24:60</p>
+    </div>
+    <fa-icon [icon]="faPalette" class=""></fa-icon>
+
+    <!-- Display name only on large screens -->
+    <div class="flex flex-row items-center gap-2 hover:text-ctp-peach cursor-pointer">
+      <p class="hidden md:block">John Carlos</p>
+      <img [ngSrc]="user_img" alt="user profile picture" width="100" height="100" class="w-10 rounded-full" />
     </div>
   </div>
 </div>
+<!-- i need help in images?? -->
