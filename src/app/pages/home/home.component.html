@@ -23,7 +23,7 @@
 
           @for (detail of menu.details; track detail.name) {
             <div class="flex flex-col gap-1">
-              <p class="font-medium text-lg text-ctp-subtext1">{{ detail.name }}</p>
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">{{ detail.name }}</p>
               <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
             </div>
           } @empty {

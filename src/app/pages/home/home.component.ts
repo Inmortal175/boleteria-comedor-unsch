@@ -25,7 +25,7 @@ export class HomeComponent {
       field: 'desayuno',
       details: [
         {
-          name: 'Bebible',
+          name: 'bebible',
           value: ['cocoa', 'leche'],
         },
         {
