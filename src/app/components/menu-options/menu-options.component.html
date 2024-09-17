@@ -1,0 +1,5 @@
+@for (item of itemsLeft; track item.id) {
+  <p class="hover:bg-ctp-surface0 p-2 rounded-lg">{{ item.text }}</p>
+} @empty {
+  <p>There are no items.</p>
+}
