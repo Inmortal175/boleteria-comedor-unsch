@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTicket, faChevronRight ,faChevronDown} from '@fortawesome/free-solid-svg-icons';
+import { faTicket, faChevronRight, faChevronDown, faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [NavbarComponent, FontAwesomeModule],
+  imports: [NavbarComponent, FontAwesomeModule, MenuOptionsComponent],
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.css'],
 })
@@ -14,6 +15,7 @@ export class TicketComponent {
   faTicket = faTicket;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
+  faChartPie = faChartPie;
   itemsLeft = [
     { id: 1, text: 'Ticket' },
     { id: 2, text: 'Pase Semanal' },
@@ -44,7 +46,7 @@ export class TicketComponent {
       image: 'example_url_image.com',
     },
   ];
-  dataTicket=[
+  dataTicket = [
     {
       id: 'aee8b5f4-7d4d-409e-b46b-9fc088dddfe6',
       field: 'ticket-almuerzo',
@@ -70,24 +72,22 @@ export class TicketComponent {
           value: 'jueves,3 de septiembre',
         },
         {
-          name:'Tiempo de Expiración',
-          value:'2 minutos',
-        }
+          name: 'Tiempo de Expiración',
+          value: '2 minutos',
+        },
       ],
       image: 'example_url_image.com',
     },
-  ]
-  dataReporNutricional = [
-    {
-      id: '723beba9-cb44-497f-bcf3-4637746ba27e',
-      field: ' Valor nutricional',
-      details: {
-        carbohydrates: '13 g',
-        proteins: '25 g',
-        fats: '45 g',
-        energy: '600 Kcal',
-      },
-      image: 'example_url_image.com',
+  ];
+  dataReporNutricional = {
+    id: '723beba9-cb44-497f-bcf3-4637746ba27e',
+    field: ' Valor nutricional',
+    details: {
+      carbohydrates: '13 g',
+      proteins: '25 g',
+      fats: '45 g',
+      energy: '600 Kcal',
     },
-  ]
+    image: 'example_url_image.com',
+  };
 }
