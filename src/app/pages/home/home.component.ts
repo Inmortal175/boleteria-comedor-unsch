@@ -16,11 +16,6 @@ export class HomeComponent {
   faHome = faHome;
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
-  itemsLeft = [
-    { id: 1, text: 'Ticket' },
-    { id: 2, text: 'Pase Semanal' },
-    { id: 3, text: '[beca-comedor]' },
-  ];
   dataMenu = [
     {
       id: '6aca2b90-2333-4a36-83da-257c28cd65c4',

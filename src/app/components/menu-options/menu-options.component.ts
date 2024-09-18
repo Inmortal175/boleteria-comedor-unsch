@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-options',
@@ -9,8 +10,14 @@ import { Component } from '@angular/core';
 })
 export class MenuOptionsComponent {
   itemsLeft = [
-    { id: 1, text: 'ticket' },
-    { id: 2, text: 'pase semanal' },
-    { id: 3, text: '[beca-comedor]' },
+    { id: 1, text: 'ticket', path: 'ticket' },
+    { id: 2, text: 'pase semanal', path: 'weekly-pass' },
+    { id: 3, text: '[beca-comedor]', path: 'empty' },
   ];
+
+  constructor(private router: Router) {}
+
+  navigateTo(path: string) {
+    this.router.navigate([path]);
+  }
 }
