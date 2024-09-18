@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHome, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, FontAwesomeModule],
+  imports: [NavbarComponent, MenuOptionsComponent, FontAwesomeModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

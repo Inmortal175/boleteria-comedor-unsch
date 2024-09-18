@@ -8,13 +8,7 @@
   </div>
 
   <div class="flex flex-row gap-5 p-2 w-full font-mont text-ctp-text">
-    <div class="border-ctp-crust border-r-2 w-1/5 font-semibold flex justify-start flex-col gap-5 p-2">
-      @for (item of itemsLeft; track item.id) {
-        <p class="p-2 hover:bg-ctp-surface0 rounded-lg">{{ item.text }}</p>
-      } @empty {
-        <p>There are no items.</p>
-      }
-    </div>
+    <app-menu-options class="flex flex-col gap-5 capitalize font-semibold font-mont w-1/5 border-ctp-crust p-2 border-r-2"></app-menu-options>
 
     <div class="flex flex-row w-full justify-between px-20">
       @for (menu of dataMenu; track menu.id) {
