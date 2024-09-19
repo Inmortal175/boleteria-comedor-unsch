@@ -119,7 +119,7 @@
       "fecha": "2024-08-24",
       "desayuno": {
         "id_desayuno": 4,
-        "bebible": "Harian de quinua, lúcuma, leche",
+        "bebible": "harina de quinua, lúcuma, leche",
         "acompaniamiento": "pan con palta y huevo",
         "aditivo": null,
         "fruta_postre": "papaya",
@@ -142,6 +142,44 @@
         "grasas": 15
       },
       "cena": null
+    },
+    {
+      "id_menu": 5,
+      "fecha": "2024-08-26",
+      "desayuno": {
+        "id_desayuno": 5,
+        "bebible": "ponche de kiwicha",
+        "acompaniamiento": "pan con huevo",
+        "aditivo": null,
+        "fruta_postre": null,
+        "image_url": "https://picsum.photos/200/300?grayscale",
+        "carbohidratos": 65,
+        "proteinas": 19,
+        "grasas": 12
+      },
+      "almuerzo": {
+        "id_almuerzo": 5,
+        "sopa_entrada": "crema de arveja",
+        "segundo": "pollo de sillao, papa",
+        "ensalada": null,
+        "fruta": null,
+        "postre": "gelatina",
+        "refresco": "cebada",
+        "image_url": "https://picsum.photos/seed/picsum/200/300",
+        "carbohidratos": 90,
+        "proteinas": 32,
+        "grasas": 23
+      },
+      "cena": {
+        "id_cena": 5,
+        "plato_principal": "locro de zapallo, arroz",
+        "postre": "cochinito de trigo",
+        "bebida": "cocoa",
+        "image_url": "https://picsum.photos/200/300/?blur",
+        "carbohidratos": 81,
+        "proteinas": 21,
+        "grasas": 20
+      }
     }
   ]
 }

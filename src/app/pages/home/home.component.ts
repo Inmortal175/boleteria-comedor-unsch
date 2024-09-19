@@ -27,8 +27,7 @@ export class HomeComponent {
   };
   d_desayuno = {
     id_desayuno: 1,
-    // bebible: undefined,
-    bebible: 'cocoa, leche',
+    bebible: null,
     acompaniamiento: 'pan con mermelada, aceituna',
     aditivo: 'pan',
     fruta_postre: 'papaya',
