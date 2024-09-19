@@ -22,7 +22,6 @@ export class HomeComponent {
 
   data_menu = {
     id_menu: 1,
-    nombre: 'nombre',
     fecha: '2017-05-25 17:39:15.014961-05',
     id_administrador: 1,
   };
