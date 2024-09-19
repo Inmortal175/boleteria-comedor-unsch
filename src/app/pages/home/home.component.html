@@ -1,54 +1,194 @@
-<div class="flex flex-col gap-2 w-full">
+<div class="flex flex-col gap-2 w-full font-popp">
   <app-navbar></app-navbar>
 
-  <div class="flex flex-row gap-5 p-2 w-full font-mont text-ctp-text">
+  <div class="flex flex-row gap-5 p-2 w-full text-ctp-text">
     <app-menu-options class="flex flex-col gap-5 capitalize font-semibold font-mont w-1/5 border-ctp-crust p-2 border-r-2"></app-menu-options>
 
-    <div class="flex flex-row w-full justify-between px-20">
-      @for (menu of dataMenu; track menu.id) {
-        <div class="flex flex-col font-popp text-ctp-text gap-2">
-          <p class="font-semibold text-xl capitalize text-center">{{ menu.field }}</p>
-
-          @for (detail of menu.details; track detail.name) {
-            <div class="flex flex-col gap-1">
-              <p class="font-medium text-lg text-ctp-subtext1 capitalize">{{ detail.name }}</p>
-              <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+    <div class="flex flex-row w-full justify-around gap-20 px-20">
+      <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
+        <p class="font-semibold text-xl capitalize text-center">desayuno</p>
+        <div class="flex flex-col gap-2">
+          @if (d_desayuno.bebible) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebible</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.bebible }}</p>
             </div>
-          } @empty {
-            <div>No details available.</div>
           }
-
-          <div class="font-mont text-ctp-text text-base flex flex-col gap-2">
-            <div class="flex flex-row text-ctp-green">
-              <fa-icon [icon]="faChevronDown" class=""></fa-icon>
-              <p class="capitalize font-medium">mostrar valor nutricional</p>
+          @if (d_desayuno.acompaniamiento) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">acompaniamiento</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.acompaniamiento }}</p>
             </div>
-            <div class="flex flex-row justify-between">
-              <span class="">Carbohidratos </span>
-              <span>{{ menu.nutritional_value.carbohydrates }}</span>
+          }
+          @if (d_desayuno.aditivo) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">aditivo</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.aditivo }}</p>
             </div>
-
-            <div class="flex flex-row justify-between">
-              <span class="">Proteínas </span>
-              <span>{{ menu.nutritional_value.proteins }} </span>
+          }
+          @if (d_desayuno.fruta_postre) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta - postre</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.fruta_postre }}</p>
             </div>
-
-            <div class="flex flex-row justify-between">
-              <span class="">Grasas </span>
-              <span>{{ menu.nutritional_value.fats }} </span>
-            </div>
-
-            <div class="flex flex-row justify-between">
-              <span class="">Energía </span>
-              <span>{{ menu.nutritional_value.energy }} </span>
-            </div>
-          </div>
-
-          <div>image: {{ menu.image }}</div>
+          }
         </div>
-      } @empty {
-        <div>No menus available.</div>
-      }
+        <div class="flex flex-col gap-2">
+          <div
+            class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold cursor-pointer hover:bg-ctp-surface0 p-2 hover:rounded-md"
+            (click)="handleSHD()">
+            <fa-icon [icon]="d_desayuno_visible ? faChevronUp : faChevronDown" class=""></fa-icon>
+            <p class="capitalize">{{ d_desayuno_visible === true ? 'ocultar valor nutricional' : 'mostrar valor nutricional' }}</p>
+          </div>
+          @if (d_desayuno_visible) {
+            <div class="flex flex-col gap-1">
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">carbohidratos</p>
+                <p>{{ d_desayuno.carbohidratos }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">proteínas</p>
+                <p>{{ d_desayuno.proteinas }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">grasas</p>
+                <p>{{ d_desayuno.grasas }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">energía</p>
+                <p>{{ energy_desayuno }} <span class="lowercase">kcal</span></p>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="w-full h-60 p-2">
+          <img [ngSrc]="d_desayuno.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+        </div>
+      </div>
+
+      <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
+        <p class="font-semibold text-xl capitalize text-center">almuerzo</p>
+
+        <div class="flex flex-col gap-2">
+          @if (d_almuerzo.sopa_entrada) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">sopa de entrada</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.sopa_entrada }}</p>
+            </div>
+          }
+          @if (d_almuerzo.segundo) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">segundo</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.segundo }}</p>
+            </div>
+          }
+          @if (d_almuerzo.ensalada) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">ensalada</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.ensalada }}</p>
+            </div>
+          }
+          @if (d_almuerzo.fruta) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.fruta }}</p>
+            </div>
+          }
+          @if (d_almuerzo.refresco) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">refresco</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.refresco }}</p>
+            </div>
+          }
+        </div>
+        <div class="flex flex-col gap-2">
+          <div
+            class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold cursor-pointer hover:bg-ctp-surface0 p-2 hover:rounded-md"
+            (click)="handleSHA()">
+            <fa-icon [icon]="d_almuerzo_visible ? faChevronUp : faChevronDown" class=""></fa-icon>
+            <p class="capitalize">{{ d_almuerzo_visible === true ? 'ocultar valor nutricional' : 'mostrar valor nutricional' }}</p>
+          </div>
+          @if (d_almuerzo_visible) {
+            <div class="flex flex-col gap-1">
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">carbohidratos</p>
+                <p>{{ d_almuerzo.carbohidratos }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">proteínas</p>
+                <p>{{ d_almuerzo.proteinas }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">grasas</p>
+                <p>{{ d_almuerzo.grasas }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">energía</p>
+                <p>{{ energy_almuerzo }} <span class="lowercase">kcal</span></p>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="w-full h-60 p-2">
+          <img [ngSrc]="d_almuerzo.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+        </div>
+      </div>
+
+      <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
+        <p class="font-semibold text-xl capitalize text-center">cena</p>
+
+        <div class="flex flex-col gap-2">
+          @if (d_cena.plato_principal) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">plato principal</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_cena.plato_principal }}</p>
+            </div>
+          }
+          @if (d_cena.postre) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">postre</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_cena.postre }}</p>
+            </div>
+          }
+          @if (d_cena.bebida) {
+            <div class="flex flex-col">
+              <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebida</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_cena.bebida }}</p>
+            </div>
+          }
+        </div>
+        <div class="flex flex-col gap-2">
+          <div
+            class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold cursor-pointer hover:bg-ctp-surface0 p-2 hover:rounded-md"
+            (click)="handleSHC()">
+            <fa-icon [icon]="d_cena_visible ? faChevronUp : faChevronDown" class=""></fa-icon>
+            <p class="capitalize">{{ d_cena_visible === true ? 'ocultar valor nutricional' : 'mostrar valor nutricional' }}</p>
+          </div>
+          @if (d_cena_visible) {
+            <div class="flex flex-col gap-1">
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">carbohidratos</p>
+                <p>{{ d_cena.carbohidratos }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">proteínas</p>
+                <p>{{ d_cena.proteinas }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">grasas</p>
+                <p>{{ d_cena.grasas }} <span class="lowercase">g</span></p>
+              </div>
+              <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
+                <p class="font-semibold">energía</p>
+                <p>{{ energy_cena }} <span class="lowercase">kcal</span></p>
+              </div>
+            </div>
+          }
+        </div>
+        <div class="w-full h-60 p-2">
+          <img [ngSrc]="d_cena.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+        </div>
+      </div>
     </div>
   </div>
 </div>
