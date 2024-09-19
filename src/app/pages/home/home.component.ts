@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgOptimizedImage } from '@angular/common';
-import { calculate_energy } from '../../../utils';
 import { faHome, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+import { calculate_energy } from '../../../utils';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 
@@ -25,6 +25,7 @@ export class HomeComponent {
     fecha: '2017-05-25 17:39:15.014961-05',
     id_administrador: 1,
   };
+
   d_desayuno = {
     id_desayuno: 1,
     bebible: null,
@@ -37,9 +38,6 @@ export class HomeComponent {
     grasas: 11,
     id_menu: 1,
   };
-  d_desayuno_visible = false;
-  d_almuerzo_visible = false;
-  d_cena_visible = false;
   d_almuerzo = {
     id_almuerzo: 1,
     sopa_entrada: 'sopa de trigo',
@@ -64,6 +62,7 @@ export class HomeComponent {
     grasas: 65,
     id_menu: 1,
   };
+
   energy_desayuno = calculate_energy({
     carbohydrates: this.d_desayuno.carbohidratos,
     proteins: this.d_desayuno.proteinas,
@@ -79,6 +78,10 @@ export class HomeComponent {
     proteins: this.d_cena.proteinas,
     fats: this.d_cena.grasas,
   });
+
+  d_desayuno_visible = false;
+  d_almuerzo_visible = false;
+  d_cena_visible = false;
 
   handleSHD = () => (this.d_desayuno_visible = !this.d_desayuno_visible);
   handleSHA = () => (this.d_almuerzo_visible = !this.d_almuerzo_visible);
