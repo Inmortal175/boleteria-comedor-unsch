@@ -19,6 +19,7 @@ export class HomeComponent {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
+
   data_menu = {
     id_menu: 1,
     nombre: 'nombre',
@@ -38,7 +39,7 @@ export class HomeComponent {
     grasas: 11,
     id_menu: 1,
   };
-  d_desayuno_visible = true;
+  d_desayuno_visible = false;
   d_almuerzo_visible = false;
   d_cena_visible = false;
   d_almuerzo = {
@@ -80,4 +81,8 @@ export class HomeComponent {
     proteins: this.d_cena.proteinas,
     fats: this.d_cena.grasas,
   });
+
+  handleSHD = () => (this.d_desayuno_visible = !this.d_desayuno_visible);
+  handleSHA = () => (this.d_almuerzo_visible = !this.d_almuerzo_visible);
+  handleSHC = () => (this.d_cena_visible = !this.d_cena_visible);
 }

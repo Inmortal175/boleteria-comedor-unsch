@@ -34,7 +34,9 @@
           }
         </div>
         <div class="flex flex-col gap-2">
-          <div class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold">
+          <div
+            class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold cursor-pointer hover:bg-ctp-surface0 p-2 hover:rounded-md"
+            (click)="handleSHD()">
             <fa-icon [icon]="d_desayuno_visible ? faChevronUp : faChevronDown" class=""></fa-icon>
             <p class="capitalize">{{ d_desayuno_visible === true ? 'ocultar valor nutricional' : 'mostrar valor nutricional' }}</p>
           </div>
@@ -100,7 +102,9 @@
           }
         </div>
         <div class="flex flex-col gap-2">
-          <div class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold">
+          <div
+            class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold cursor-pointer hover:bg-ctp-surface0 p-2 hover:rounded-md"
+            (click)="handleSHA()">
             <fa-icon [icon]="d_almuerzo_visible ? faChevronUp : faChevronDown" class=""></fa-icon>
             <p class="capitalize">{{ d_almuerzo_visible === true ? 'ocultar valor nutricional' : 'mostrar valor nutricional' }}</p>
           </div>
@@ -154,7 +158,9 @@
           }
         </div>
         <div class="flex flex-col gap-2">
-          <div class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold">
+          <div
+            class="flex flex-row gap-2 text-ctp-green font-mont text-sm font-semibold cursor-pointer hover:bg-ctp-surface0 p-2 hover:rounded-md"
+            (click)="handleSHC()">
             <fa-icon [icon]="d_cena_visible ? faChevronUp : faChevronDown" class=""></fa-icon>
             <p class="capitalize">{{ d_cena_visible === true ? 'ocultar valor nutricional' : 'mostrar valor nutricional' }}</p>
           </div>
