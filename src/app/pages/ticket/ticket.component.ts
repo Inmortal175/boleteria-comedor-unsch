@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTicket, faChevronRight, faChevronDown, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { faTicket, faChevronRight, faChevronDown, faChartPie, faQrcode, faFloppyDisk, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-ticket',
@@ -16,6 +16,9 @@ export class TicketComponent {
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
   faChartPie = faChartPie;
+  faQrcode = faQrcode;
+  faFloppyDisk = faFloppyDisk;
+  faDollarSign = faDollarSign;
   itemsLeft = [
     { id: 1, text: 'Ticket' },
     { id: 2, text: 'Pase Semanal' },
@@ -72,8 +75,8 @@ export class TicketComponent {
           value: 'jueves,3 de septiembre',
         },
         {
-          name: 'Tiempo de Expiración',
-          value: '2 minutos',
+          tiempo: 'Tiempo de Expiración',
+          valor: '2 minutos',
         },
       ],
       image: 'example_url_image.com',

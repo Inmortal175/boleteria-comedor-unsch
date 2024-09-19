@@ -34,7 +34,10 @@
           @for (ticket of dataTicket; track ticket.id) {
             <div class="flex flex-col items-center">
               <div class="flex flex-col gap-2 font-popp text-ctp-text">
-                <p class="font-semibold text-xl capitalize">{{ ticket.field }}</p>
+                <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+                  <fa-icon [icon]="faQrcode" class=""></fa-icon>
+                  <p class="font-semibold text-center text-xl capitalize">{{ ticket.field }}</p>
+                </div>
                 <div class="mb-4">
                   <img src="{{ ticket.image }}" alt="Image for {{ ticket.field }}" class="w-full h-auto" />
                 </div>
@@ -43,16 +46,29 @@
                   <div class="flex flex-col gap-1">
                     <p class="font-medium text-ctp-subtext1 text-lg capitalize">{{ detail.name }}</p>
                     <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+                    <div class="flex flex-row gap-1">
+                      <p>{{ detail.tiempo }}</p>
+                      <p class="">{{ detail.valor }}</p>
+                    </div>
                   </div>
                 } @empty {
                   <div>No details available.</div>
                 }
-                <div class="flex flex-row gap-5"><button>Guardar</button><button>Pagar</button></div>
+                <div class="flex flex-row gap-5">
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faFloppyDisk" class=""></fa-icon>
+                    <button>Guardar</button>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faDollarSign" class=""></fa-icon>
+                    <button>Pagar</button>
+                  </div>
+                </div>
               </div>
             </div>
           }
         </div>
-
+        <!--  Reporte nutricional-->
         <div class="flex flex-col gap-5">
           <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
             <fa-icon [icon]="faChartPie" class=""></fa-icon>
@@ -77,8 +93,7 @@
               <p>{{ dataReporNutricional.details.energy }}</p>
             </div>
           </div>
-
-          <div>imagen</div>
+          <div>imagen siuuuuu</div>
         </div>
       </div>
     </div>
