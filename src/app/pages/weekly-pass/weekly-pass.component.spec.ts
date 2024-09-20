@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { WeeklyPassComponent } from './weekly-pass.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('WeeklyPassComponent', () => {
+  let component: WeeklyPassComponent;
+  let fixture: ComponentFixture<WeeklyPassComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent],
+      imports: [WeeklyPassComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(WeeklyPassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

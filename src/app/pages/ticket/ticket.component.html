@@ -1,0 +1,103 @@
+<div class="flex flex-col gap-2 w-full font-popp">
+  <app-navbar></app-navbar>
+
+  <div class="flex flex-row gap-5 p-2 w-full font-mont text-ctp-text">
+    <app-menu-options class="flex flex-col gap-5 border-ctp-crust p-2 border-r-2 w-1/5 font-mont font-semibold capitalize"></app-menu-options>
+
+    <div class="flex flex-col w-full gap-4">
+      <div class="flex flex-row gap-2 font-victor rounded-lg bg-red-300 py-2 px-4 mr-4">
+        <p class="font-semibold">No disponible:</p>
+        <p>Se habilitara dentro de 2 horas</p>
+      </div>
+
+      <div class="flex flex-row justify-around">
+        <div class="flex flex-row justify-between">
+          @for (menu of dataMenu; track menu.id) {
+            <div class="flex flex-col gap-2 font-popp text-ctp-text">
+              <p class="font-semibold text-center text-xl capitalize">{{ menu.field }}</p>
+
+              @for (detail of menu.details; track detail.name) {
+                <div class="flex flex-col gap-1">
+                  <p class="font-medium text-ctp-subtext1 text-lg capitalize">{{ detail.name }}</p>
+                  <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+                </div>
+              } @empty {
+                <div>No details available.</div>
+              }
+
+              <div>image: {{ menu.image }}</div>
+            </div>
+          }
+        </div>
+        <!--  -->
+        <div class="flex flex-row justify-center">
+          @for (ticket of dataTicket; track ticket.id) {
+            <div class="flex flex-col items-center">
+              <div class="flex flex-col gap-2 font-popp text-ctp-text">
+                <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+                  <fa-icon [icon]="faQrcode" class=""></fa-icon>
+                  <p class="font-semibold text-center text-xl capitalize">{{ ticket.field }}</p>
+                </div>
+                <div class="mb-4">
+                  <img src="{{ ticket.image }}" alt="Image for {{ ticket.field }}" class="w-full h-auto" />
+                </div>
+
+                @for (detail of ticket.details; track detail.name) {
+                  <div class="flex flex-col gap-1">
+                    <p class="font-medium text-ctp-subtext1 text-lg capitalize">{{ detail.name }}</p>
+                    <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+                    <div class="flex flex-row gap-1">
+                      <p>{{ detail.tiempo }}</p>
+                      <p class="">{{ detail.valor }}</p>
+                    </div>
+                  </div>
+                } @empty {
+                  <div>No details available.</div>
+                }
+                <div class="flex flex-row gap-5">
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faFloppyDisk" class=""></fa-icon>
+                    <button>Guardar</button>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faDollarSign" class=""></fa-icon>
+                    <button>Pagar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+        <!--  Reporte nutricional-->
+        <div class="flex flex-col gap-5">
+          <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+            <fa-icon [icon]="faChartPie" class=""></fa-icon>
+            <p class="">{{ dataReporNutricional.field }}</p>
+          </div>
+
+          <div class="flex flex-col gap-2 text-lg">
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">Carbohidratos</p>
+              <p class="">{{ dataReporNutricional.details.carbohydrates }}</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">Proteinas</p>
+              <p>{{ dataReporNutricional.details.proteins }}</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">grasas</p>
+              <p>{{ dataReporNutricional.details.fats }}</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">Energia</p>
+              <p>{{ dataReporNutricional.details.energy }}</p>
+            </div>
+          </div>
+          <div>imagen siuuuuu</div>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+  </div>
+</div>
