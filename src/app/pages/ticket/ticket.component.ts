@@ -66,37 +66,12 @@ export class TicketComponent {
   Menu: IMenu[] = menu;
 
   currentDate = '2024-08-29';
-  currentTime = '07:45';
+  currentTime = '15:45';
   foodType = getFoodType(this.currentTime);
 
   currentMenu = getMenuByDay(this.Menu, this.currentDate)!;
-  currentFoodEnergy = getEnegyDay(this.currentMenu);
+  menuEnergy = getEnegyDay(this.currentMenu);
 
-  dataMenu = [
-    {
-      id: '6aca2b90-2333-4a36-83da-257c28cd65c4',
-      field: 'almuerzo',
-      details: [
-        {
-          name: 'sopa de entrada',
-          value: 'crema de garbanzo',
-        },
-        {
-          name: 'segundo',
-          value: 'carapulcra con sopa seca con chancho',
-        },
-        {
-          name: 'postre',
-          value: 'pera',
-        },
-        {
-          name: 'refresco',
-          value: 'agua de manzanilla',
-        },
-      ],
-      image: 'example_url_image.com',
-    },
-  ];
   dataTicket = [
     {
       id: 'aee8b5f4-7d4d-409e-b46b-9fc088dddfe6',

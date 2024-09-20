@@ -47,10 +47,72 @@
             </div>
           }
           @if (foodType === 'almuerzo') {
-            <p class="font-semibold text-center text-xl capitalize">almuerzo</p>
+            <p class="font-semibold text-xl capitalize text-center">almuerzo</p>
+            <div class="flex flex-col gap-2">
+              @if (currentMenu.almuerzo.sopa_entrada) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">sopa de entrada</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.sopa_entrada }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.segundo) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">segundo</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.segundo }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.ensalada) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">ensalada</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.ensalada }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.fruta) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.fruta }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.refresco) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">refresco</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.refresco }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.image_url) {
+                <div class="w-full h-60 p-2">
+                  <img [ngSrc]="currentMenu.almuerzo.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+                </div>
+              }
+            </div>
           }
           @if (foodType === 'cena') {
-            <p class="font-semibold text-center text-xl capitalize">cena</p>
+            <p class="font-semibold text-xl capitalize text-center">cena</p>
+            <div class="flex flex-col gap-2">
+              @if (currentMenu.cena.plato_principal) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">plato principal</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.cena.plato_principal }}</p>
+                </div>
+              }
+              @if (currentMenu.cena.postre) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">postre</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.cena.postre }}</p>
+                </div>
+              }
+              @if (currentMenu.cena.bebida) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebida</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.cena.bebida }}</p>
+                </div>
+              }
+              @if (currentMenu.cena.image_url) {
+                <div class="w-full h-60 p-2">
+                  <img [ngSrc]="currentMenu.cena.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+                </div>
+              }
+            </div>
           }
         </div>
 
@@ -114,7 +176,10 @@
             </div>
             <div class="flex flex-row justify-between">
               <p class="font-semibold capitalize">energia</p>
-              <p>{{ currentFoodEnergy }}<span class="lowercase px-1">kcal</span></p>
+              <p>
+                {{ foodType === 'desayuno' ? menuEnergy.e_desayuno : foodType === 'almuerzo' ? menuEnergy.e_almuerzo : menuEnergy.e_cena
+                }}<span class="lowercase px-1">kcal</span>
+              </p>
             </div>
           </div>
           <div>
