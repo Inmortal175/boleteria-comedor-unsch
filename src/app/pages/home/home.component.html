@@ -1,35 +1,35 @@
-<div class="flex flex-col gap-2 w-full font-popp">
+<div class="flex flex-col gap-2 w-full h-screen font-popp bg-ctp-base">
   <app-navbar></app-navbar>
 
-  <div class="flex flex-row gap-5 p-2 w-full text-ctp-text">
-    <app-menu-options class="flex flex-col gap-5 capitalize font-semibold font-mont w-1/5 border-ctp-crust p-2 border-r-2"></app-menu-options>
+  <div class="flex flex-row gap-5 p-2 w-full text-ctp-text h-full">
+    <app-menu-options class="flex flex-col h-full gap-5 capitalize font-semibold font-mont w-1/5 border-ctp-crust p-2 border-r-2"></app-menu-options>
 
     <div class="flex flex-row w-full justify-around gap-20 px-20">
       <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
         <p class="font-semibold text-xl capitalize text-center">desayuno</p>
         <div class="flex flex-col gap-2">
-          @if (d_desayuno.bebible) {
+          @if (db_menu?.desayuno?.bebible) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebible</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.bebible }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.desayuno?.bebible }}</p>
             </div>
           }
-          @if (d_desayuno.acompaniamiento) {
+          @if (db_menu?.desayuno?.acompaniamiento) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">acompaniamiento</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.acompaniamiento }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.desayuno?.acompaniamiento }}</p>
             </div>
           }
-          @if (d_desayuno.aditivo) {
+          @if (db_menu?.desayuno?.aditivo) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">aditivo</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.aditivo }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.desayuno?.aditivo }}</p>
             </div>
           }
-          @if (d_desayuno.fruta_postre) {
+          @if (db_menu?.desayuno?.fruta_postre) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta - postre</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_desayuno.fruta_postre }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.desayuno?.fruta_postre }}</p>
             </div>
           }
         </div>
@@ -44,60 +44,62 @@
             <div class="flex flex-col gap-1">
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">carbohidratos</p>
-                <p>{{ d_desayuno.carbohidratos }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.desayuno?.carbohidratos }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">proteínas</p>
-                <p>{{ d_desayuno.proteinas }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.desayuno?.proteinas }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">grasas</p>
-                <p>{{ d_desayuno.grasas }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.desayuno?.grasas }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">energía</p>
-                <p>{{ energy_desayuno }} <span class="lowercase">kcal</span></p>
+                <p>{{ e_desayuno }} <span class="lowercase">kcal</span></p>
               </div>
             </div>
           }
         </div>
-        <div class="w-full h-60 p-2">
-          <img [ngSrc]="d_desayuno.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
-        </div>
+        @if (db_menu?.desayuno?.image_url) {
+          <div class="w-full h-60 p-2">
+            <img [ngSrc]="db_menu?.desayuno?.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          </div>
+        }
       </div>
 
       <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
         <p class="font-semibold text-xl capitalize text-center">almuerzo</p>
 
         <div class="flex flex-col gap-2">
-          @if (d_almuerzo.sopa_entrada) {
+          @if (db_menu?.almuerzo?.sopa_entrada) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">sopa de entrada</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.sopa_entrada }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.almuerzo?.sopa_entrada }}</p>
             </div>
           }
-          @if (d_almuerzo.segundo) {
+          @if (db_menu?.almuerzo?.segundo) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">segundo</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.segundo }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.almuerzo?.segundo }}</p>
             </div>
           }
-          @if (d_almuerzo.ensalada) {
+          @if (db_menu?.almuerzo?.ensalada) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">ensalada</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.ensalada }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.almuerzo?.ensalada }}</p>
             </div>
           }
-          @if (d_almuerzo.fruta) {
+          @if (db_menu?.almuerzo?.fruta) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.fruta }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.almuerzo?.fruta }}</p>
             </div>
           }
-          @if (d_almuerzo.refresco) {
+          @if (db_menu?.almuerzo?.refresco) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">refresco</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_almuerzo.refresco }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.almuerzo?.refresco }}</p>
             </div>
           }
         </div>
@@ -112,48 +114,50 @@
             <div class="flex flex-col gap-1">
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">carbohidratos</p>
-                <p>{{ d_almuerzo.carbohidratos }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.almuerzo?.carbohidratos }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">proteínas</p>
-                <p>{{ d_almuerzo.proteinas }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.almuerzo?.proteinas }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">grasas</p>
-                <p>{{ d_almuerzo.grasas }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.almuerzo?.grasas }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">energía</p>
-                <p>{{ energy_almuerzo }} <span class="lowercase">kcal</span></p>
+                <p>{{ e_almuerzo }} <span class="lowercase">kcal</span></p>
               </div>
             </div>
           }
         </div>
-        <div class="w-full h-60 p-2">
-          <img [ngSrc]="d_almuerzo.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
-        </div>
+        @if (db_menu?.almuerzo?.image_url) {
+          <div class="w-full h-60 p-2">
+            <img [ngSrc]="db_menu?.almuerzo?.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          </div>
+        }
       </div>
 
       <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
         <p class="font-semibold text-xl capitalize text-center">cena</p>
 
         <div class="flex flex-col gap-2">
-          @if (d_cena.plato_principal) {
+          @if (db_menu?.cena?.plato_principal) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">plato principal</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_cena.plato_principal }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.cena?.plato_principal }}</p>
             </div>
           }
-          @if (d_cena.postre) {
+          @if (db_menu?.cena?.postre) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">postre</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_cena.postre }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.cena?.postre }}</p>
             </div>
           }
-          @if (d_cena.bebida) {
+          @if (db_menu?.cena?.bebida) {
             <div class="flex flex-col">
               <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebida</p>
-              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ d_cena.bebida }}</p>
+              <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ db_menu?.cena?.bebida }}</p>
             </div>
           }
         </div>
@@ -168,26 +172,28 @@
             <div class="flex flex-col gap-1">
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">carbohidratos</p>
-                <p>{{ d_cena.carbohidratos }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.cena?.carbohidratos }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">proteínas</p>
-                <p>{{ d_cena.proteinas }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.cena?.proteinas }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">grasas</p>
-                <p>{{ d_cena.grasas }} <span class="lowercase">g</span></p>
+                <p>{{ db_menu?.cena?.grasas }} <span class="lowercase">g</span></p>
               </div>
               <div class="flex flex-row justify-between capitalize font-popp text-ctp-text">
                 <p class="font-semibold">energía</p>
-                <p>{{ energy_cena }} <span class="lowercase">kcal</span></p>
+                <p>{{ e_cena }} <span class="lowercase">kcal</span></p>
               </div>
             </div>
           }
         </div>
-        <div class="w-full h-60 p-2">
-          <img [ngSrc]="d_cena.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
-        </div>
+        @if (db_menu?.cena?.image_url) {
+          <div class="w-full h-60 p-2">
+            <img [ngSrc]="db_menu?.cena?.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          </div>
+        }
       </div>
     </div>
   </div>
