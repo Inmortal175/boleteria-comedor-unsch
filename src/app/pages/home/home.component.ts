@@ -24,7 +24,7 @@ export class HomeComponent {
 
   Menu: IMenu[] = menu;
 
-  curent_day = '2024-09-02';
+  curent_day = '2024-08-29';
   img_default_food = 'https://picsum.photos/seed/picsum/200/300';
   db_menu = getMenuByDay(this.Menu, this.curent_day);
 

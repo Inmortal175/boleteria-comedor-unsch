@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { NgOptimizedImage } from '@angular/common';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTicket, faChevronRight, faChevronDown, faChartPie, faQrcode, faFloppyDisk, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import menu from '../../../assets/db/menu.json';
 import { IMenu } from '../../../interface';
-import { calculateEnergy, getFoodByTime } from '../../../utils';
+import { getEnegyDay, getFoodType, getMenuByDay } from '../../../utils';
 import { NgApexchartsModule, ChartComponent } from 'ng-apexcharts';
 import { ApexNonAxisChartSeries, ApexResponsive, ApexChart } from 'ng-apexcharts';
 
@@ -20,7 +22,7 @@ export interface ChartOptions {
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [NavbarComponent, FontAwesomeModule, MenuOptionsComponent, NgApexchartsModule],
+  imports: [NavbarComponent, FontAwesomeModule, NgOptimizedImage, MenuOptionsComponent, NgApexchartsModule, CommonModule],
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.css'],
 })
@@ -51,6 +53,7 @@ export class TicketComponent {
       ],
     };
   }
+  img_default_food = 'https://picsum.photos/seed/picsum/200/300';
 
   faTicket = faTicket;
   faChevronDown = faChevronDown;
@@ -62,11 +65,12 @@ export class TicketComponent {
 
   Menu: IMenu[] = menu;
 
-  currentDate = '2024-09-02';
-  currentTime = '10:45';
+  currentDate = '2024-08-29';
+  currentTime = '07:45';
+  foodType = getFoodType(this.currentTime);
 
-  currentFood = getFoodByTime(this.Menu, this.currentDate, this.currentTime);
-  currentFoodEnergy = calculateEnergy(this.currentFood!);
+  currentMenu = getMenuByDay(this.Menu, this.currentDate)!;
+  currentFoodEnergy = getEnegyDay(this.currentMenu);
 
   dataMenu = [
     {
