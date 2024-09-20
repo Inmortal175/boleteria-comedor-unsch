@@ -23,43 +23,12 @@ export class HomeComponent {
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
   Menu: IMenu[] = menu;
-  d_desayuno = {
-    id_desayuno: 1,
-    bebible: null,
-    acompaniamiento: 'pan con mermelada, aceituna',
-    aditivo: 'pan',
-    fruta_postre: 'papaya',
-    image_url: 'https://picsum.photos/200/300?grayscale',
-    carbohidratos: 32,
-    proteinas: 23,
-    grasas: 11,
-    id_menu: 1,
-  };
+  d_desayuno = this.Menu[4].desayuno;
 
-  d_almuerzo = {
-    id_almuerzo: 1,
-    sopa_entrada: 'sopa de trigo',
-    segundo: 'estofado de pescado, arroz',
-    ensalada: 'lechuga, pepino, tomate',
-    fruta: 'durazno',
-    refresco: 'capuli',
-    image_url: 'https://picsum.photos/seed/picsum/200/300',
-    carbohidratos: 342,
-    proteinas: 12,
-    grasas: 65,
-    id_menu: 1,
-  };
-  d_cena = {
-    id_cena: 1,
-    plato_principal: 'coliflor con pollo,arroz',
-    postre: 'tiramisu',
-    bebida: 'cocoa',
-    image_url: 'https://picsum.photos/200/300/?blur',
-    carbohidratos: 32,
-    proteinas: 23,
-    grasas: 65,
-    id_menu: 1,
-  };
+  d_almuerzo = this.Menu[4].almuerzo;
+
+  d_cena = this.Menu[4].cena;
+
   energy_desayuno = calculate_energy({
     carbohydrates: this.d_desayuno.carbohidratos,
     proteins: this.d_desayuno.proteinas,

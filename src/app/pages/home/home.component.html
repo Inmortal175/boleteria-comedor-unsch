@@ -62,7 +62,9 @@
           }
         </div>
         <div class="w-full h-60 p-2">
-          <img [ngSrc]="d_desayuno.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          @if (d_desayuno.image_url) {
+            <img [ngSrc]="d_desayuno.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          }
         </div>
       </div>
 
@@ -130,7 +132,9 @@
           }
         </div>
         <div class="w-full h-60 p-2">
-          <img [ngSrc]="d_almuerzo.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          @if (d_almuerzo.image_url) {
+            <img [ngSrc]="d_almuerzo.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          }
         </div>
       </div>
 
@@ -186,7 +190,9 @@
           }
         </div>
         <div class="w-full h-60 p-2">
-          <img [ngSrc]="d_cena.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          @if (d_cena.image_url) {
+            <img [ngSrc]="d_cena.image_url" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          }
         </div>
       </div>
     </div>

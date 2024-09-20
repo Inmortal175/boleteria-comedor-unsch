@@ -140,7 +140,16 @@
       "proteinas": 36,
       "grasas": 15
     },
-    "cena": null
+    "cena": {
+      "id_cena": 4,
+      "plato_principal": null,
+      "postre": null,
+      "bebida": null,
+      "image_url": null,
+      "carbohidratos": 0,
+      "proteinas": 0,
+      "grasas": 0
+    }
   },
   {
     "id_menu": 5,
@@ -250,7 +259,7 @@
       "plato_principal": null,
       "postre": null,
       "bebida": null,
-      "image_url": "https://picsum.photos/200/300/?blur",
+      "image_url": null,
       "carbohidratos": 0,
       "proteinas": 0,
       "grasas": 0

@@ -35,7 +35,7 @@ export interface ICena extends IValorNuticional {
 export interface IMenu {
   id_menu: number;
   fecha: string;
-  desayuno: IDesayuno | null;
-  almuerzo: IAlmuerzo | null;
-  cena: ICena | null;
+  desayuno: IDesayuno;
+  almuerzo: IAlmuerzo;
+  cena: ICena;
 }
