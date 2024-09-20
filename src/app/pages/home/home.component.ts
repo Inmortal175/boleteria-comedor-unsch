@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgOptimizedImage } from '@angular/common';
-import { calculate_energy } from '../../../utils';
+import { calculate_energy, getMenuByDay } from '../../../utils';
 import { faHome, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 import { NavbarComponent } from '../../components/navbar/navbar.component';
@@ -22,27 +22,33 @@ export class HomeComponent {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
+
   Menu: IMenu[] = menu;
-  d_desayuno = this.Menu[4].desayuno;
 
-  d_almuerzo = this.Menu[4].almuerzo;
+  curent_day = '2024-09-02';
+  img_default_food = 'https://picsum.photos/seed/picsum/200/300';
+  db_menu = getMenuByDay(this.Menu, this.curent_day);
 
-  d_cena = this.Menu[4].cena;
+  d_desayuno = this.db_menu?.desayuno;
+
+  d_almuerzo = this.db_menu?.almuerzo;
+
+  d_cena = this.db_menu?.cena;
 
   energy_desayuno = calculate_energy({
-    carbohydrates: this.d_desayuno.carbohidratos,
-    proteins: this.d_desayuno.proteinas,
-    fats: this.d_desayuno.grasas,
+    carbohidratos: this.d_desayuno?.carbohidratos || 0,
+    proteinas: this.d_desayuno?.proteinas || 0,
+    grasas: this.d_desayuno?.grasas || 0,
   });
   energy_almuerzo = calculate_energy({
-    carbohydrates: this.d_almuerzo.carbohidratos,
-    proteins: this.d_almuerzo.proteinas,
-    fats: this.d_almuerzo.grasas,
+    carbohidratos: this.d_almuerzo?.carbohidratos || 0,
+    proteinas: this.d_almuerzo?.proteinas || 0,
+    grasas: this.d_almuerzo?.grasas || 0,
   });
   energy_cena = calculate_energy({
-    carbohydrates: this.d_cena.carbohidratos,
-    proteins: this.d_cena.proteinas,
-    fats: this.d_cena.grasas,
+    carbohidratos: this.d_cena?.carbohidratos || 0,
+    proteinas: this.d_cena?.proteinas || 0,
+    grasas: this.d_cena?.grasas || 0,
   });
 
   d_desayuno_visible = false;

@@ -1,9 +1,18 @@
-export interface CalculateEnergyParams {
-  carbohydrates: number;
-  proteins: number;
-  fats: number;
-}
+import { IAlmuerzo, ICena, IDesayuno, IMenu, IValorNuticional } from '../interfaz';
 
-export const calculate_energy = ({ carbohydrates, proteins, fats }: CalculateEnergyParams): number => {
-  return carbohydrates * 4 + proteins * 4 + fats * 9;
+export const calculate_energy = ({ carbohidratos, proteinas, grasas }: IValorNuticional): number => {
+  return carbohidratos * 4 + proteinas * 4 + grasas * 9;
+};
+
+export const getMenuByDay = (menus: IMenu[], current_day: string): { desayuno: IDesayuno; almuerzo: IAlmuerzo; cena: ICena } | null => {
+  for (const menu of menus) {
+    if (menu.fecha === current_day) {
+      return {
+        desayuno: menu.desayuno,
+        almuerzo: menu.almuerzo,
+        cena: menu.cena,
+      };
+    }
+  }
+  return null;
 };
