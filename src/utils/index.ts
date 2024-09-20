@@ -1,9 +1,4 @@
-import { IAlmuerzo, ICena, IDesayuno, IMenu, IValorNuticional } from '../interfaz';
-
-export const calculate_energy = ({ carbohidratos, proteinas, grasas }: IValorNuticional): number => {
-  return carbohidratos * 4 + proteinas * 4 + grasas * 9;
-};
-
+import { IAlmuerzo, ICena, IDesayuno, IMenu } from '../interfaz';
 export const getMenuByDay = (menus: IMenu[], current_day: string): { desayuno: IDesayuno; almuerzo: IAlmuerzo; cena: ICena } | null => {
   for (const menu of menus) {
     if (menu.fecha === current_day) {
@@ -16,3 +11,6 @@ export const getMenuByDay = (menus: IMenu[], current_day: string): { desayuno: I
   }
   return null;
 };
+
+export const calculateEnergy = ({ carbohidratos, grasas, proteinas }: IDesayuno | IAlmuerzo | ICena): number =>
+  carbohidratos * 4 + proteinas * 4 + grasas * 9;
