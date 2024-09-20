@@ -29,7 +29,7 @@
             </div>
           }
         </div>
-        <!--  -->
+
         <div class="flex flex-row justify-center">
           @for (ticket of dataTicket; track ticket.id) {
             <div class="flex flex-col items-center">
@@ -39,7 +39,7 @@
                   <p class="font-semibold text-center text-xl capitalize">{{ ticket.field }}</p>
                 </div>
                 <div class="mb-4">
-                  <img src="{{ ticket.image }}" alt="Image for {{ ticket.field }}" class="w-full h-auto" />
+                  <p>image {{ ticket.image }}</p>
                 </div>
 
                 @for (detail of ticket.details; track detail.name) {
@@ -68,36 +68,40 @@
             </div>
           }
         </div>
-        <!--  Reporte nutricional-->
-        <div class="flex flex-col gap-5">
+
+        <div class="flex flex-col gap-5 text-ctp-text">
           <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
             <fa-icon [icon]="faChartPie" class=""></fa-icon>
-            <p class="">{{ dataReporNutricional.field }}</p>
+            <p class="">valor nutricional</p>
           </div>
 
           <div class="flex flex-col gap-2 text-lg">
             <div class="flex flex-row justify-between">
-              <p class="font-semibold capitalize">Carbohidratos</p>
-              <p class="">{{ dataReporNutricional.details.carbohydrates }}</p>
+              <p class="font-semibold capitalize">carbohidratos</p>
+              <p class="">{{ currentFood?.carbohidratos }}<span class="lowercase px-1">g</span></p>
             </div>
             <div class="flex flex-row justify-between">
-              <p class="font-semibold capitalize">Proteinas</p>
-              <p>{{ dataReporNutricional.details.proteins }}</p>
+              <p class="font-semibold capitalize">proteínas</p>
+              <p>{{ currentFood?.proteinas }}<span class="lowercase px-1">g</span></p>
             </div>
             <div class="flex flex-row justify-between">
               <p class="font-semibold capitalize">grasas</p>
-              <p>{{ dataReporNutricional.details.fats }}</p>
+              <p>{{ currentFood?.grasas }}<span class="lowercase px-1">g</span></p>
             </div>
             <div class="flex flex-row justify-between">
-              <p class="font-semibold capitalize">Energia</p>
-              <p>{{ dataReporNutricional.details.energy }}</p>
+              <p class="font-semibold capitalize">energia</p>
+              <p>{{ currentFoodEnergy }}<span class="lowercase px-1">kcal</span></p>
             </div>
           </div>
-          <div>imagen siuuuuu</div>
+          <div>
+            <apx-chart
+              [series]="chartOptions.series!"
+              [chart]="chartOptions.chart!"
+              [labels]="chartOptions.labels!"
+              [responsive]="chartOptions.responsive!"></apx-chart>
+          </div>
         </div>
       </div>
     </div>
-
-    <!--  -->
   </div>
 </div>

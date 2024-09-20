@@ -1,60 +1,22 @@
-import { Component, ViewChild } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgApexchartsModule, ChartComponent } from 'ng-apexcharts';
-import { ApexNonAxisChartSeries, ApexResponsive, ApexChart } from 'ng-apexcharts';
-
+import { Component } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { calculateEnergy, getMenuByDay } from '../../../utils';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHome, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+import menu from '../../../assets/db/menu.json';
+import { calculateEnergy, getMenuByDay } from '../../../utils';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
+import { IAlmuerzo, ICena, IDesayuno, IMenu } from '../../../interface';
 
-import menu from '../../../assets/db/menu.json';
-import { IAlmuerzo, ICena, IDesayuno, IMenu } from '../../../interfaz';
-
-export interface ChartOptions {
-  series: ApexNonAxisChartSeries;
-  chart: ApexChart;
-  responsive: ApexResponsive[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  labels: any;
-}
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, NgOptimizedImage, MenuOptionsComponent, FontAwesomeModule, NgApexchartsModule],
+  imports: [NavbarComponent, NgOptimizedImage, MenuOptionsComponent, FontAwesomeModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  @ViewChild('chart') chart!: ChartComponent;
-  public chartOptions: Partial<ChartOptions>;
-
-  constructor() {
-    this.chartOptions = {
-      series: [65, 19, 17],
-      chart: {
-        width: 380,
-        type: 'pie',
-      },
-      labels: ['carbohidratos', 'proteínas', 'grasas'],
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: 'bottom',
-            },
-          },
-        },
-      ],
-    };
-  }
-
   faHome = faHome;
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
