@@ -7,6 +7,9 @@ import { faHome, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 
+import menu from '../../../assets/db/menu.json';
+import { IMenu } from '../../../interfaz';
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -19,12 +22,7 @@ export class HomeComponent {
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
-
-  data_menu = {
-    id_menu: 1,
-    fecha: '2017-05-25 17:39:15.014961-05',
-    id_administrador: 1,
-  };
+  Menu: IMenu[] = menu;
   d_desayuno = {
     id_desayuno: 1,
     bebible: null,
@@ -37,9 +35,7 @@ export class HomeComponent {
     grasas: 11,
     id_menu: 1,
   };
-  d_desayuno_visible = false;
-  d_almuerzo_visible = false;
-  d_cena_visible = false;
+
   d_almuerzo = {
     id_almuerzo: 1,
     sopa_entrada: 'sopa de trigo',
@@ -79,6 +75,10 @@ export class HomeComponent {
     proteins: this.d_cena.proteinas,
     fats: this.d_cena.grasas,
   });
+
+  d_desayuno_visible = false;
+  d_almuerzo_visible = false;
+  d_cena_visible = false;
 
   handleSHD = () => (this.d_desayuno_visible = !this.d_desayuno_visible);
   handleSHA = () => (this.d_almuerzo_visible = !this.d_almuerzo_visible);
