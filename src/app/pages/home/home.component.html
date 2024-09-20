@@ -66,6 +66,11 @@
             <img [ngSrc]="db_menu?.desayuno?.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
           </div>
         }
+        <apx-chart
+          [series]="chartOptions.series!"
+          [chart]="chartOptions.chart!"
+          [labels]="chartOptions.labels!"
+          [responsive]="chartOptions.responsive!"></apx-chart>
       </div>
 
       <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
