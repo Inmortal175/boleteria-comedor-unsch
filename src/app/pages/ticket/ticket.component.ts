@@ -53,6 +53,7 @@ export class TicketComponent {
       ],
     };
   }
+
   img_default_food = 'https://picsum.photos/seed/picsum/200/300';
 
   faTicket = faTicket;

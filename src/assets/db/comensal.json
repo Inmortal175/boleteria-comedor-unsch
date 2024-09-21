@@ -2,18 +2,18 @@
   {
     "id_comensal": 1,
     "nombre": "Andrea",
-    "apellido_paterno": "",
-    "apellido_materno": "",
-    "id_escuela-prof": "",
-    "id_facultad": "",
-    "cod_estudiante": "27202029",
+    "apellido_paterno": "Quispe",
+    "apellido_materno": "Huallpa",
+    "id_escuela-prof": 20,
+    "id_facultad": 7,
+    "cod_estudiante": 27202029,
     "dni": 11001100,
     "sexo": "M",
-    "nmr_celular": "",
-    "email": "",
-    "password": "",
+    "nmr_celular": 983765433,
+    "email": "andrea.quispe.20@unsch.edu.pe",
+    "password": "this_empty-PWD1",
     "url_foto": "",
-    "id_tickets": "",
+    "id_tickets": "1",
     "id_pases_semanales": ""
   }
 ]
