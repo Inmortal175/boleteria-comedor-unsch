@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgOptimizedImage } from '@angular/common';
-import { calculateEnergy, getMenuByDay } from '../../../utils';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHome, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
+import menu from '../../../assets/db/menu.json';
+import { calculateEnergy, getMenuByDay } from '../../../utils';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
-
-import menu from '../../../assets/db/menu.json';
-import { IAlmuerzo, ICena, IDesayuno, IMenu } from '../../../interfaz';
+import { IAlmuerzo, ICena, IDesayuno, IMenu } from '../../../interface';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +24,7 @@ export class HomeComponent {
 
   Menu: IMenu[] = menu;
 
-  curent_day = '2024-09-02';
+  curent_day = '2024-08-29';
   img_default_food = 'https://picsum.photos/seed/picsum/200/300';
   db_menu = getMenuByDay(this.Menu, this.curent_day);
 

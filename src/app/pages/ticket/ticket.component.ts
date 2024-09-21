@@ -1,17 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { NgOptimizedImage } from '@angular/common';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTicket, faChevronRight, faChevronDown, faChartPie, faQrcode, faFloppyDisk, faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import menu from '../../../assets/db/menu.json';
+import { IMenu } from '../../../interface';
+import { getEnegyDay, getFoodType, getMenuByDay } from '../../../utils';
+import { NgApexchartsModule, ChartComponent } from 'ng-apexcharts';
+import { ApexNonAxisChartSeries, ApexResponsive, ApexChart } from 'ng-apexcharts';
+
+export interface ChartOptions {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  labels: any;
+}
 
 @Component({
   selector: 'app-ticket',
   standalone: true,
-  imports: [NavbarComponent, FontAwesomeModule, MenuOptionsComponent],
+  imports: [NavbarComponent, FontAwesomeModule, NgOptimizedImage, MenuOptionsComponent, NgApexchartsModule, CommonModule],
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.css'],
 })
 export class TicketComponent {
+  @ViewChild('chart') chart!: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
+
+  constructor() {
+    this.chartOptions = {
+      series: [65, 19, 17],
+      chart: {
+        width: 380,
+        type: 'pie',
+      },
+      labels: ['carbohidratos', 'proteínas', 'grasas'],
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+        },
+      ],
+    };
+  }
+
+  img_default_food = 'https://picsum.photos/seed/picsum/200/300';
+
   faTicket = faTicket;
   faChevronDown = faChevronDown;
   faChevronRight = faChevronRight;
@@ -19,36 +63,16 @@ export class TicketComponent {
   faQrcode = faQrcode;
   faFloppyDisk = faFloppyDisk;
   faDollarSign = faDollarSign;
-  itemsLeft = [
-    { id: 1, text: 'Ticket' },
-    { id: 2, text: 'Pase Semanal' },
-    { id: 3, text: '[beca-comedor]' },
-  ];
-  dataMenu = [
-    {
-      id: '6aca2b90-2333-4a36-83da-257c28cd65c4',
-      field: 'almuerzo',
-      details: [
-        {
-          name: 'sopa de entrada',
-          value: 'crema de garbanzo',
-        },
-        {
-          name: 'segundo',
-          value: 'carapulcra con sopa seca con chancho',
-        },
-        {
-          name: 'postre',
-          value: 'pera',
-        },
-        {
-          name: 'refresco',
-          value: 'agua de manzanilla',
-        },
-      ],
-      image: 'example_url_image.com',
-    },
-  ];
+
+  Menu: IMenu[] = menu;
+
+  currentDate = '2024-08-29';
+  currentTime = '15:45';
+  foodType = getFoodType(this.currentTime);
+
+  currentMenu = getMenuByDay(this.Menu, this.currentDate)!;
+  menuEnergy = getEnegyDay(this.currentMenu);
+
   dataTicket = [
     {
       id: 'aee8b5f4-7d4d-409e-b46b-9fc088dddfe6',
@@ -82,15 +106,4 @@ export class TicketComponent {
       image: 'example_url_image.com',
     },
   ];
-  dataReporNutricional = {
-    id: '723beba9-cb44-497f-bcf3-4637746ba27e',
-    field: ' Valor nutricional',
-    details: {
-      carbohydrates: '13 g',
-      proteins: '25 g',
-      fats: '45 g',
-      energy: '600 Kcal',
-    },
-    image: 'example_url_image.com',
-  };
 }
