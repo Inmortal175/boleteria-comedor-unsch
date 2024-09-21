@@ -1,0 +1,19 @@
+[
+  {
+    "id_comensal": 1,
+    "nombre": "",
+    "apellido_paterno": "",
+    "apellido_materno": "",
+    "id_escuela-prof": "",
+    "id_facultad": "",
+    "cod_estudiante": "",
+    "dni": 11001100,
+    "sexo": "M",
+    "nmr_celular": "",
+    "email": "",
+    "password": "",
+    "url_foto": "",
+    "id_tickets": "",
+    "id_pases_semanales": ""
+  }
+]
