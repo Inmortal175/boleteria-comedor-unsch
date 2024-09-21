@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Run linting
+npm run lint
+
+# Run formatting
+npm run format
+
+# Run tests
+npm run test
