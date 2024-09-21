@@ -1,0 +1,114 @@
+[
+  {
+    "id_escuela_prof": 1,
+    "escuela_profesional": "Escuela Profesional de Agronomía"
+  },
+  {
+    "id_escuela_prof": 2,
+    "escuela_profesional": "Escuela Profesional de Ingeniería Agrícola"
+  },
+  {
+    "id_escuela_prof": 3,
+    "escuela_profesional": "Escuela Profesional de Medicina Veterinaria"
+  },
+  {
+    "id_escuela_prof": 4,
+    "escuela_profesional": "Escuela Profesional de Ingeniería Agroforestal"
+  },
+  {
+    "id_escuela_prof": 5,
+    "escuela_profesional": "Escuela Profesional de Biología"
+  },
+  {
+    "id_escuela_prof": 6,
+    "escuela_profesional": "Escuela Profesional de Educación Inicial"
+  },
+  {
+    "id_escuela_prof": 7,
+    "escuela_profesional": "Escuela Profesional de Educación Primaria"
+  },
+  {
+    "id_escuela_prof": 8,
+    "escuela_profesional": "Escuela Profesional de Educación Secundaria"
+  },
+  {
+    "id_escuela_prof": 9,
+    "escuela_profesional": "Escuela Profesional de Educación Física"
+  },
+  {
+    "id_escuela_prof": 10,
+    "escuela_profesional": "Escuela Profesional de Economía"
+  },
+  {
+    "id_escuela_prof": 11,
+    "escuela_profesional": "Escuela de Administración de Empresas"
+  },
+  {
+    "id_escuela_prof": 12,
+    "escuela_profesional": "Escuela de Contabilidad y Auditoria"
+  },
+  {
+    "id_escuela_prof": 13,
+    "escuela_profesional": "Escuela Profesional de Trabajo Social"
+  },
+  {
+    "id_escuela_prof": 14,
+    "escuela_profesional": "Escuela Profesional de Antropología Social"
+  },
+  {
+    "id_escuela_prof": 15,
+    "escuela_profesional": "Escuela Profesional de Ciencias de la Comunicación"
+  },
+  {
+    "id_escuela_prof": 16,
+    "escuela_profesional": "Escuela Profesional de Arqueología e Historia"
+  },
+  {
+    "id_escuela_prof": 17,
+    "escuela_profesional": "Escuela de Derecho"
+  },
+  {
+    "id_escuela_prof": 18,
+    "escuela_profesional": "Escuela Profesional de Ingeniería de Mínas"
+  },
+  {
+    "id_escuela_prof": 19,
+    "escuela_profesional": "Escuela Profesional de Ingeniería Civil"
+  },
+  {
+    "id_escuela_prof": 20,
+    "escuela_profesional": "Escuela Profesional de Ingeniería de Sistemas"
+  },
+  {
+    "id_escuela_prof": 21,
+    "escuela_profesional": "Escuela de Ciencias Físico Matemáticas"
+  },
+  {
+    "id_escuela_prof": 22,
+    "escuela_profesional": "Escuela de Ingeniería Química"
+  },
+  {
+    "id_escuela_prof": 23,
+    "escuela_profesional": "Escuela de Ingeniería en Industrias Alimentarias"
+  },
+  {
+    "id_escuela_prof": 24,
+    "escuela_profesional": "Escuela de Ingeniería Agroindustrial"
+  },
+  {
+    "id_escuela_prof": 25,
+    "escuela_profesional": "Escuela Profesional de Medicina Humana"
+  },
+  {
+    "id_escuela_prof": 26,
+    "escuela_profesional": "Escuela Profesional de Enfermería"
+  },
+  {
+    "id_escuela_prof": 27,
+    "escuela_profesional": "Escuela Profesional de Farmacia y Bioquímica"
+  },
+  {
+    "id_escuela_prof": 28,
+    "escuela_profesional": "Escuela Profesional de Obstetricia"
+  }
+]
