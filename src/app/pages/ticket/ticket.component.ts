@@ -6,7 +6,11 @@ import { MenuOptionsComponent } from '../../components/menu-options/menu-options
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTicket, faChevronRight, faChevronDown, faChartPie, faQrcode, faFloppyDisk, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import menu from '../../../assets/db/menu.json';
-import { IMenu } from '../../../interface';
+import comensal from '../../../assets/db/comensal.json';
+import ticket from '../../../assets/db/ticket.json';
+import facultad from '../../../assets/db/facultad.json';
+import sProf from '../../../assets/db/escuela_prof.json';
+import { IComensal, IEscuelaProf, IFacultad, IMenu, ITicket } from '../../../interface';
 import { getEnegyDay, getFoodType, getMenuByDay } from '../../../utils';
 import { NgApexchartsModule, ChartComponent } from 'ng-apexcharts';
 import { ApexNonAxisChartSeries, ApexResponsive, ApexChart } from 'ng-apexcharts';
@@ -65,6 +69,10 @@ export class TicketComponent {
   faDollarSign = faDollarSign;
 
   Menu: IMenu[] = menu;
+  Comensal: IComensal[] = comensal;
+  Facultad: IFacultad[] = facultad;
+  SProf: IEscuelaProf[] = sProf;
+  Ticket: ITicket[] = ticket;
 
   currentDate = '2024-08-29';
   currentTime = '15:45';
