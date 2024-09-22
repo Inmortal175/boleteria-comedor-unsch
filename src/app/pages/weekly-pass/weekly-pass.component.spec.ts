@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenuOptionsComponent } from './menu-options.component';
+import { WeeklyPassComponent } from './weekly-pass.component';
 
-describe('MenuOptionsComponent', () => {
-  let component: MenuOptionsComponent;
-  let fixture: ComponentFixture<MenuOptionsComponent>;
+describe('WeeklyPassComponent', () => {
+  let component: WeeklyPassComponent;
+  let fixture: ComponentFixture<WeeklyPassComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MenuOptionsComponent],
+      imports: [WeeklyPassComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MenuOptionsComponent);
+    fixture = TestBed.createComponent(WeeklyPassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

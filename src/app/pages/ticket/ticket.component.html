@@ -1,5 +1,205 @@
+<div class="flex flex-col gap-2 w-full font-popp">
+  <app-navbar></app-navbar>
 
-<div>
-    <app-navbar></app-navbar>
-    <p>hola mundo</p>
+  <div class="flex flex-row gap-5 p-2 w-full font-mont text-ctp-text">
+    <app-menu-options class="flex flex-col gap-5 border-ctp-crust p-2 border-r-2 w-1/5 font-mont font-semibold capitalize"></app-menu-options>
+
+    <div class="flex flex-col w-full gap-4">
+      <div class="flex flex-row gap-2 font-victor rounded-lg bg-red-300 py-2 px-4 mr-4">
+        <p class="font-semibold">No disponible:</p>
+        <p>Se habilitara dentro de 2 horas</p>
+      </div>
+
+      <div class="flex flex-row justify-around px-10">
+        <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
+          @if (foodType === 'desayuno') {
+            <p class="font-semibold text-xl capitalize text-center">desayuno</p>
+            <div class="flex flex-col gap-2">
+              @if (currentMenu.desayuno.bebible) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebible</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.desayuno.bebible }}</p>
+                </div>
+              }
+              @if (currentMenu.desayuno.acompaniamiento) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">acompaniamiento</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.desayuno.acompaniamiento }}</p>
+                </div>
+              }
+              @if (currentMenu.desayuno.aditivo) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">aditivo</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.desayuno.aditivo }}</p>
+                </div>
+              }
+              @if (currentMenu.desayuno.fruta_postre) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta - postre</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.desayuno.fruta_postre }}</p>
+                </div>
+              }
+              @if (currentMenu.desayuno.image_url) {
+                <div class="w-full h-60 p-2">
+                  <img [ngSrc]="currentMenu.desayuno.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+                </div>
+              }
+            </div>
+          }
+          @if (foodType === 'almuerzo') {
+            <p class="font-semibold text-xl capitalize text-center">almuerzo</p>
+            <div class="flex flex-col gap-2">
+              @if (currentMenu.almuerzo.sopa_entrada) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">sopa de entrada</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.sopa_entrada }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.segundo) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">segundo</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.segundo }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.ensalada) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">ensalada</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.ensalada }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.fruta) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">fruta</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.fruta }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.refresco) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">refresco</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.almuerzo.refresco }}</p>
+                </div>
+              }
+              @if (currentMenu.almuerzo.image_url) {
+                <div class="w-full h-60 p-2">
+                  <img [ngSrc]="currentMenu.almuerzo.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+                </div>
+              }
+            </div>
+          }
+          @if (foodType === 'cena') {
+            <p class="font-semibold text-xl capitalize text-center">cena</p>
+            <div class="flex flex-col gap-2">
+              @if (currentMenu.cena.plato_principal) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize-first">plato principal</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.cena.plato_principal }}</p>
+                </div>
+              }
+              @if (currentMenu.cena.postre) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">postre</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.cena.postre }}</p>
+                </div>
+              }
+              @if (currentMenu.cena.bebida) {
+                <div class="flex flex-col">
+                  <p class="font-medium text-lg text-ctp-subtext1 capitalize">bebida</p>
+                  <p class="font-light text-base text-ctp-subtext0 capitalize-first">{{ currentMenu.cena.bebida }}</p>
+                </div>
+              }
+              @if (currentMenu.cena.image_url) {
+                <div class="w-full h-60 p-2">
+                  <img [ngSrc]="currentMenu.cena.image_url || img_default_food" alt="" width="1" height="1" class="h-full w-full object-cover" />
+                </div>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="flex flex-col font-popp text-ctp-text gap-2 w-1/3">
+          @for (ticket of dataTicket; track ticket.id) {
+            <div class="flex flex-col items-center">
+              <div class="flex flex-col gap-2 font-popp text-ctp-text">
+                <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+                  <fa-icon [icon]="faQrcode" class=""></fa-icon>
+                  <p class="font-semibold text-center text-xl capitalize">{{ ticket.field }}</p>
+                </div>
+                <div class="mb-4">
+                  <p>image {{ ticket.image }}</p>
+                </div>
+
+                @for (detail of ticket.details; track detail.name) {
+                  <div class="flex flex-col gap-1">
+                    <p class="font-medium text-ctp-subtext1 text-lg capitalize">{{ detail.name }}</p>
+                    <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+                    <div class="flex flex-row gap-1">
+                      <p>{{ detail.tiempo }}</p>
+                      <p class="">{{ detail.valor }}</p>
+                    </div>
+                  </div>
+                } @empty {
+                  <div>No details available.</div>
+                }
+                <div class="flex flex-row gap-5">
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faFloppyDisk" class=""></fa-icon>
+                    <button>Guardar</button>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faDollarSign" class=""></fa-icon>
+                    <button>Pagar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="flex flex-col font-popp text-ctp-text gap-2 w-auto">
+          <div class="flex flex-row gap-2 font-bold text-lg justify-center capitalize px-4">
+            <fa-icon [icon]="faChartPie" class=""></fa-icon>
+            <p class="">valor nutricional</p>
+          </div>
+
+          <div class="flex flex-col gap-2 text-lg">
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">carbohidratos</p>
+              <p class="">
+                {{ currentMenu.desayuno.carbohidratos }}
+                <span class="lowercase px-1">g</span>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">proteínas</p>
+              <p>
+                {{ currentMenu.desayuno.proteinas }}
+                <span class="lowercase px-1">g</span>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">grasas</p>
+              <p>
+                {{ currentMenu.desayuno.grasas }}
+                <span class="lowercase px-1">g</span>
+              </p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">energia</p>
+              <p>
+                {{ foodType === 'desayuno' ? menuEnergy.e_desayuno : foodType === 'almuerzo' ? menuEnergy.e_almuerzo : menuEnergy.e_cena }}
+                <span class="lowercase px-1">kcal</span>
+              </p>
+            </div>
+          </div>
+          <div>
+            <apx-chart
+              [series]="chartOptions.series!"
+              [chart]="chartOptions.chart!"
+              [labels]="chartOptions.labels!"
+              [responsive]="chartOptions.responsive!"></apx-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

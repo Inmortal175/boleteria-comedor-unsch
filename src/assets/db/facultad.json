@@ -1,0 +1,47 @@
+[
+  {
+    "id_facultad": 1,
+    "nombre_facultad": "Facultad de Ciencias Agrarias",
+    "id_escuelas_prof": "1,2,3,4"
+  },
+  {
+    "id_facultad": 2,
+    "nombre_facultad": "Facultad de Ciencias Biológicas",
+    "id_escuelas_prof": "5"
+  },
+  {
+    "id_facultad": 3,
+    "nombre_facultad": "Facultad de Ciencias de la Educación",
+    "id_escuelas_prof": "6,7,8,9"
+  },
+  {
+    "id_facultad": 4,
+    "nombre_facultad": "Facultad de Ciencias Económicas, Administrativas y Contables",
+    "id_escuelas_prof": "10,11,12"
+  },
+  {
+    "id_facultad": 5,
+    "nombre_facultad": "Facultad Ciencias Sociales",
+    "id_escuelas_prof": "13,14,15,16"
+  },
+  {
+    "id_facultad": 6,
+    "nombre_facultad": "Facultad de Derecho y Ciencias Jurídicas",
+    "id_escuelas_prof": "17"
+  },
+  {
+    "id_facultad": 7,
+    "nombre_facultad": "Facultad de Ingeniería de Minas, Geología y Civil",
+    "id_escuelas_prof": "18,19,20,21"
+  },
+  {
+    "id_facultad": 8,
+    "nombre_facultad": "Facultad de Ingeniería Química y Meralurgia",
+    "id_escuelas_prof": "22,23,24"
+  },
+  {
+    "id_facultad": 9,
+    "nombre_facultad": "Facultad de Ciencias de la Salud",
+    "id_escuelas_prof": "25,26,27,28"
+  }
+]

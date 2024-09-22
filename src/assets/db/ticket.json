@@ -1,0 +1,13 @@
+[
+  {
+    "id_ticket_diario": 1,
+    "cantidad": "",
+    "stock": "",
+    "estado": "",
+    "tiempo": "",
+    "fecha_activacion": "",
+    "hora_disponible": "",
+    "id_tarifa": "",
+    "id_tipo_ticket": ""
+  }
+]
