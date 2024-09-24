@@ -1,1 +1,6 @@
-src/assets
+.angular
+.cargo
+.vscode
+/dist
+/node_modules
+/bindings
