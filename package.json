@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:boleteria-comedor-unsch": "node dist/boleteria-comedor-unsch/server/server.mjs",
+     "lint:web": "oxlint -c ./.eslintrc.json ./src",
     "format": "prettier --check '**/*.{ts,js,html,css}'",
     "format:fix": "prettier --write '**/*.{ts,js,html,css}'",
     "prepare": "husky"
@@ -55,6 +56,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "oxlint": "^0.2.17",
     "postcss": "^8.4.44",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
