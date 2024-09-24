@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:boleteria-comedor-unsch": "node dist/boleteria-comedor-unsch/server/server.mjs",
-     "lint:web": "oxlint -c ./.eslintrc.json ./src",
+    "lint": "oxlint -c ./.eslintrc.json ./src",
     "format": "prettier --check '**/*.{ts,js,html,css}'",
     "format:fix": "prettier --write '**/*.{ts,js,html,css}'",
     "prepare": "husky"
