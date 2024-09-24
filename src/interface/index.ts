@@ -39,3 +39,44 @@ export interface IMenu {
   almuerzo: IAlmuerzo;
   cena: ICena;
 }
+
+export interface IFacultad {
+  id_facultad: number;
+  nombre_facultad: string;
+  id_escuelas_prof: string;
+}
+
+export interface IEscuelaProf {
+  id_escuela_prof: number;
+  escuela_prof: string;
+}
+
+export interface IComensal {
+  id_comensal: number;
+  nombre: string;
+  apellido_paterno: string;
+  apellido_materno: string;
+  id_escuela_prof: number;
+  id_facultad: number;
+  cod_estudiante: number;
+  dni: number;
+  sexo: string;
+  nmr_celular: number;
+  email: string;
+  password: string;
+  url_foto: string;
+  id_tickets: string;
+  id_pases_semanales: string;
+}
+
+export interface ITicket {
+  id_ticket_diario: number;
+  cantidad: string;
+  stock: string;
+  estado: string;
+  tiempo: string;
+  fecha_activacion: string;
+  hora_disponible: string;
+  id_tarifa: string;
+  id_tipo_ticket: string;
+}
