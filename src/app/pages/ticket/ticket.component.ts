@@ -19,7 +19,6 @@ export interface ChartOptions {
   series: ApexNonAxisChartSeries;
   chart: ApexChart;
   responsive: ApexResponsive[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   labels: any;
 }
 
