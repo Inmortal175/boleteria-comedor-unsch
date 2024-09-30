@@ -1,3 +1,148 @@
-<div>
+<div class="flex flex-col gap-2 w-full font-popp">
   <app-navbar></app-navbar>
+
+  <div class="flex flex-row gap-5 p-2 w-full font-mont text-ctp-text">
+    <app-menu-options class="flex flex-col gap-5 border-ctp-crust p-2 border-r-2 w-1/5 font-mont font-semibold capitalize"></app-menu-options>
+
+    <div class="flex flex-col w-full gap-4">
+      <div class="flex flex-row gap-2 font-victor rounded-lg bg-green-300 py-2 px-4 mr-4">
+        <p class="font-semibold">Disponible:</p>
+        <p class="italic">Quedan 12 pases Semanales</p>
+      </div>
+
+      <div class="flex flex-row justify-around">
+        <div class="flex flex-row justify-between">
+          @for (menu of dataMenu; track menu.id) {
+            <div class="flex flex-col gap-2 font-popp text-ctp-text">
+              <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+                <fa-icon [icon]="faCalendarDay" class=""></fa-icon>
+                <p class="font-semibold text-center text-xl capitalize">Días</p>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-normal text-ctp-subtext1 text-lg capitalize">Lunes 13 de Septiembre</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Desayuno</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Almuerzo</p>
+                <fa-icon [icon]="faChevronUp" class=""></fa-icon>
+              </div>
+              @for (detail of menu.details; track detail.name) {
+                <div class="flex flex-col gap-1">
+                  <p class="font-regular text-ctp-subtext1 text-lg capitalize">{{ detail.name }}</p>
+                  <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+                </div>
+              } @empty {
+                <div>No details available.</div>
+              }
+              <div class="flex flex-row gap-2">
+                <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Cena</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-medium text-ctp-subtext1 text-lg capitalize">Martes 14 de Septiembre</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-medium text-ctp-subtext1 text-lg capitalize">Miercoles 15 de Septiembre</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-medium text-ctp-subtext1 text-lg capitalize">Jueves 16 de Septiembre</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-medium text-ctp-subtext1 text-lg capitalize">Viernes 17 de Septiembre</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+              <div class="flex flex-row gap-2">
+                <p class="font-medium text-ctp-subtext1 text-lg capitalize">Sábado 18 de Septiembre</p>
+                <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+              </div>
+            </div>
+          }
+        </div>
+        <!--  -->
+        <div class="flex flex-row justify-center">
+          @for (ticket of dataPaseSemanal; track ticket.id) {
+            <div class="flex flex-col items-center">
+              <div class="flex flex-col gap-2 font-popp text-ctp-text">
+                <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+                  <fa-icon [icon]="faQrcode" class=""></fa-icon>
+                  <p class="font-semibold text-center text-xl capitalize">{{ ticket.field }}</p>
+                </div>
+                @for (detail of ticket.details; track detail.name) {
+                  <div class="flex flex-col gap-1">
+                    <p class="font-medium text-ctp-subtext1 text-lg capitalize">{{ detail.name }}</p>
+                    <p class="font-light text-base text-ctp-subtext0">{{ detail.value }}</p>
+                  </div>
+                } @empty {
+                  <div>No details available.</div>
+                }
+                <div class="flex flex-row gap-5">
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faPlus" class=""></fa-icon>
+                    <button>Generar pase semanal</button>
+                  </div>
+                  <div class="flex flex-row gap-2">
+                    <fa-icon [icon]="faRotate" class=""></fa-icon>
+                    <button>Actualizar pase semanal</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+        <!--  Reporte nutricional-->
+        <div class="flex flex-col gap-5">
+          <div class="flex flex-row gap-2 font-bold text-lg capitalize px-4">
+            <fa-icon [icon]="faChartPie" class=""></fa-icon>
+            <p class="">{{ dataReporNutricional.field }}</p>
+          </div>
+          <div class="flex flex-row gap-2">
+            <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Desayuno</p>
+            <fa-icon [icon]="faChevronUp" class=""></fa-icon>
+          </div>
+          <div class="flex flex-col gap-2 text-lg">
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">Carbohidratos</p>
+              <p class="">{{ dataReporNutricional.details.carbohydrates }}</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">Proteinas</p>
+              <p>{{ dataReporNutricional.details.proteins }}</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">grasas</p>
+              <p>{{ dataReporNutricional.details.fats }}</p>
+            </div>
+            <div class="flex flex-row justify-between">
+              <p class="font-semibold capitalize">Energia</p>
+              <p>{{ dataReporNutricional.details.energy }}</p>
+            </div>
+          </div>
+          <div class="flex flex-row gap-2">
+            <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Almuerzo</p>
+            <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+          </div>
+          <div class="flex flex-row gap-2">
+            <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Cena</p>
+            <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+          </div>
+          <div class="flex flex-row gap-2">
+            <p class="font-semibold text-ctp-subtext1 text-lg capitalize">Todo</p>
+            <fa-icon [icon]="faChevronDown" class=""></fa-icon>
+          </div>
+          <div class="w-full h-60 p-2">
+            <img [ngSrc]="dataReporNutricional.image" alt="" width="1" height="1" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+  </div>
 </div>
