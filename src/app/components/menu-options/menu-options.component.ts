@@ -12,7 +12,7 @@ export class MenuOptionsComponent {
   itemsLeft = [
     { id: 1, text: 'ticket', path: 'ticket' },
     { id: 2, text: 'pase semanal', path: 'weekly-pass' },
-    { id: 3, text: '[beca-comedor]', path: 'empty' },
+    { id: 3, text: '[beca-comedor]', path: 'beca' },
   ];
 
   constructor(private router: Router) {}

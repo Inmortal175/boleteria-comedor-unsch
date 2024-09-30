@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgOptimizedImage } from '@angular/common';
-import { calculate_energy } from '../../../utils';
+import { calculateEnergy, getMenuByDay } from '../../../utils';
 import { faHome, faChevronRight, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuOptionsComponent } from '../../components/menu-options/menu-options.component';
+
+import menu from '../../../assets/db/menu.json';
+import { IAlmuerzo, ICena, IDesayuno, IMenu } from '../../../interfaz';
 
 @Component({
   selector: 'app-home',
@@ -20,65 +23,19 @@ export class HomeComponent {
   faChevronDown = faChevronDown;
   faChevronUp = faChevronUp;
 
-  data_menu = {
-    id_menu: 1,
-    fecha: '2017-05-25 17:39:15.014961-05',
-    id_administrador: 1,
-  };
-  d_desayuno = {
-    id_desayuno: 1,
-    bebible: null,
-    acompaniamiento: 'pan con mermelada, aceituna',
-    aditivo: 'pan',
-    fruta_postre: 'papaya',
-    image_url: 'https://picsum.photos/200/300?grayscale',
-    carbohidratos: 32,
-    proteinas: 23,
-    grasas: 11,
-    id_menu: 1,
-  };
+  Menu: IMenu[] = menu;
+
+  curent_day = '2024-09-02';
+  img_default_food = 'https://picsum.photos/seed/picsum/200/300';
+  db_menu = getMenuByDay(this.Menu, this.curent_day);
+
+  e_desayuno = calculateEnergy(this.db_menu?.desayuno as IDesayuno);
+  e_almuerzo = calculateEnergy(this.db_menu?.almuerzo as IAlmuerzo);
+  e_cena = calculateEnergy(this.db_menu?.cena as ICena);
+
   d_desayuno_visible = false;
   d_almuerzo_visible = false;
   d_cena_visible = false;
-  d_almuerzo = {
-    id_almuerzo: 1,
-    sopa_entrada: 'sopa de trigo',
-    segundo: 'estofado de pescado, arroz',
-    ensalada: 'lechuga, pepino, tomate',
-    fruta: 'durazno',
-    refresco: 'capuli',
-    image_url: 'https://picsum.photos/seed/picsum/200/300',
-    carbohidratos: 342,
-    proteinas: 12,
-    grasas: 65,
-    id_menu: 1,
-  };
-  d_cena = {
-    id_cena: 1,
-    plato_principal: 'coliflor con pollo,arroz',
-    postre: 'tiramisu',
-    bebida: 'cocoa',
-    image_url: 'https://picsum.photos/200/300/?blur',
-    carbohidratos: 32,
-    proteinas: 23,
-    grasas: 65,
-    id_menu: 1,
-  };
-  energy_desayuno = calculate_energy({
-    carbohydrates: this.d_desayuno.carbohidratos,
-    proteins: this.d_desayuno.proteinas,
-    fats: this.d_desayuno.grasas,
-  });
-  energy_almuerzo = calculate_energy({
-    carbohydrates: this.d_almuerzo.carbohidratos,
-    proteins: this.d_almuerzo.proteinas,
-    fats: this.d_almuerzo.grasas,
-  });
-  energy_cena = calculate_energy({
-    carbohydrates: this.d_cena.carbohidratos,
-    proteins: this.d_cena.proteinas,
-    fats: this.d_cena.grasas,
-  });
 
   handleSHD = () => (this.d_desayuno_visible = !this.d_desayuno_visible);
   handleSHA = () => (this.d_almuerzo_visible = !this.d_almuerzo_visible);
